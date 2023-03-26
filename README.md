@@ -46,7 +46,7 @@ The variables are in `dolphindb.yml` file. You can quickly setup by editing the 
 | Variable  | Description      | Default |
 |-----------|------------------|---------|
 | image_tag | Docker image tag | v2.00.9 |
-| db_port   | Database port    | 3000    |
+| db_port   | Database port    | 8848    |
 
 ## Stop, remove and clean up workloads and templates
 

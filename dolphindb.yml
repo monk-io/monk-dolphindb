@@ -1,0 +1,34 @@
+namespace: dolphindb
+
+dolphindb:
+  metadata:
+    defines: metadata
+    name: Aerospike Real-Time Data Platform
+    description: Real-time data platform - multi-model NoSQL cloud managed database service enables high performance, scale and low cost global operations.
+    website: https://aerospike.com/
+    publisher: monk.io
+    icon: https://aerospike.com/wp-content/themes/pro-child/dist/img/logo.png 
+  defines: runnable
+  variables:
+    image_tag:
+      type: string
+      value: v2.00.9
+    db_port:
+      env: DB_PORT
+      type: string
+      value: 8848
+    volume_local:
+      type: string
+      value: <- `${monk-volume-path}/dolphindb`
+  containers:
+    db:
+      image: 'dolphindb/dolphindb'
+      image-tag: <- `${image_tag}`
+      paths:
+        - <- `${volume_local}:/opt/aerospike/data`
+  services:
+    dolphindb-svc:
+      port: <- `${db_port}`
+      container: db
+      protocol: tcp
+      host-port: <- `${db_port}`

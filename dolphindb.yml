@@ -1,13 +1,30 @@
+---
 namespace: dolphindb
+base:
 
-dolphindb:
   metadata:
     defines: metadata
-    name: Aerospike Real-Time Data Platform
-    description: Real-time data platform - multi-model NoSQL cloud managed database service enables high performance, scale and low cost global operations.
-    website: https://aerospike.com/
+    name: DolphinDB
+    description: |
+      DolphinDB is a high-performance distributed analytical database designed for big data processing and analysis. It provides a wide range of features for data storage, retrieval, analysis, and visualization.
+
+      DolphinDB is built on a distributed architecture that allows it to scale horizontally across multiple nodes. This makes it suitable for handling large-scale data processing and analysis tasks. It also includes a variety of data storage options, including columnar, row-based, and in-memory storage.
+
+      DolphinDB provides a powerful analytics engine that supports a wide range of data analysis techniques, including statistical analysis, machine learning, and time-series analysis. It also includes a number of built-in functions and algorithms for data processing and analysis.
+
+      DolphinDB includes a proprietary programming language called DolphinDB Script, which is designed to be easy to use and highly efficient. It also includes support for a number of popular programming languages such as Python, R, and Java, allowing users to integrate it with their existing workflows.
+
+      DolphinDB also provides a number of tools for data visualization, including charts, tables, and graphs. It also includes support for real-time data streaming and processing, which makes it well-suited for use cases such as financial market analysis and IoT data processing.
+    website: https://www.dolphindb.com/
     publisher: monk.io
-    icon: https://aerospike.com/wp-content/themes/pro-child/dist/img/logo.png 
+    icon: https://www.dolphindb.com/images/zlogo.png
+  containers:
+    db:
+      image: dolphindb/dolphindb
+      image-tag: <- `${image_tag}`
+
+db:
+  inherits: dolphindb/base
   defines: runnable
   variables:
     image_tag:
@@ -17,18 +34,9 @@ dolphindb:
       env: DB_PORT
       type: string
       value: 8848
-    volume_local:
-      type: string
-      value: <- `${monk-volume-path}/dolphindb`
-  containers:
-    db:
-      image: 'dolphindb/dolphindb'
-      image-tag: <- `${image_tag}`
-      paths:
-        - <- `${volume_local}:/opt/aerospike/data`
   services:
-    dolphindb-svc:
-      port: <- `${db_port}`
+    db-svc:
+      port: 8848
       container: db
       protocol: tcp
       host-port: <- `${db_port}`

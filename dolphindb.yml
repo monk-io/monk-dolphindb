@@ -39,4 +39,3 @@ db:
       port: 8848
       container: db
       protocol: tcp
-      host-port: <- `${db_port}`

@@ -1,9 +1,8 @@
 ---
 namespace: dolphindb
-base:
 
+base:
   metadata:
-    defines: metadata
     name: DolphinDB
     description: |
       DolphinDB is a high-performance distributed analytical database designed for big data processing and analysis. It provides a wide range of features for data storage, retrieval, analysis, and visualization.
@@ -18,24 +17,20 @@ base:
     website: https://www.dolphindb.com/
     publisher: monk.io
     icon: https://www.dolphindb.com/images/zlogo.png
+    source: https://github.com/dolphindb
+    tags: DolphinDB, Database Management, Financial Analytics, Big Data Analytics, High-performance Computing, Distributed Computing, In-Memory Computing, Data Science, Data Analysis, Data Visualization, Time Series Analysis, Quantitative Analysis, Real-time Analytics, SQL, NoSQL, Data Warehousing, Cloud Computing.
+    license: GNU General Public License v3.0
   containers:
     db:
       image: dolphindb/dolphindb
-      image-tag: <- `${image_tag}`
+      image-tag: v2.00.9
 
 db:
-  inherits: dolphindb/base
   defines: runnable
-  variables:
-    image_tag:
-      type: string
-      value: v2.00.9
-    db_port:
-      env: DB_PORT
-      type: string
-      value: 8848
+  inherits: dolphindb/base
   services:
     db-svc:
       port: 8848
       container: db
       protocol: tcp
+      host-port: 8848

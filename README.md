@@ -51,7 +51,7 @@ foo@bar:~$ monk run dolphindb/dolphindb
 The variables are in `dolphindb.yml` file. You can quickly setup by editing the values here.
 
 | Variable  | Description      | Default |
-|-----------|------------------|---------|
+| --------- | ---------------- | ------- |
 | image_tag | Docker image tag | v2.00.9 |
 | db_port   | Database port    | 8848    |
 

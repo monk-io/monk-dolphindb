@@ -29,7 +29,7 @@ db:
   defines: runnable
   inherits: dolphindb/base
   services:
-    db-svc:
+    dolphindb:
       port: 8848
       container: db
       protocol: tcp

@@ -18,7 +18,7 @@ base:
     publisher: monk.io
     icon: https://www.dolphindb.com/images/zlogo.png
     source: https://github.com/dolphindb
-    tags: DolphinDB, Database Management, Financial Analytics, Big Data Analytics, High-performance Computing, Distributed Computing, In-Memory Computing, Data Science, Data Analysis, Data Visualization, Time Series Analysis, Quantitative Analysis, Real-time Analytics, SQL, NoSQL, Data Warehousing, Cloud Computing.
+    tags: database management, data visualization, real-time analytics, financial analytics, data science, data warehousing, big data analytics, in-memory computing, quantitative analysis, nosql, time series analysis, distributed computing, dolphindb, data analysis, high-performance computing
     license: GNU General Public License v3.0
   containers:
     db:
